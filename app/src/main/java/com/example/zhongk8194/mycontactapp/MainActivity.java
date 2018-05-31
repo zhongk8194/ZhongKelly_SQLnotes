@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         StringBuffer buffer = new StringBuffer();
         while (res.moveToNext()){
             //Append res column 0,1,2,3 to the buffer, delimited by "\n"
-            buffer.append(res.getString(0) + "\n" + res.getString(1) + "\n" + res.getString(2) + "\n" + res.getString(3) + "\n");
+            buffer.append(res.getString(0) + "\nName: " + res.getString(1) + "\nNumber:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 " + + res.getString(2) + "\nAddress: " + res.getString(3) + "\n");
         }
         Log.d("MyContactApp", "MainActivity: viewData: assembled stringbuffer");
         showMessage("Data", buffer.toString());
@@ -75,22 +75,22 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.zhongk8194.mycontactapp.MESSAGE";
     public void SearchRecord(View view){
         Log.d("MyContactApp", "MainActivity: launching SearchActivity");
-        Cursor res = myDb.getAllData();
+        Cursor res1 = myDb.getAllData();
         Intent intent = new Intent(this, SearchActivity.class);
         StringBuffer buffer = new StringBuffer();
 
-        while (res.moveToNext()){
-            if (res.getString(1).matches(editName.getText().toString()))
+        while (res1.moveToNext()){
+            if (res1.getString(1).matches(editName.getText().toString()))
             {
-                buffer.append(res.getString(0) + "\n" + res.getString(1) + "\n" + res.getString(2) + "\n" + res.getString(3) + "\n" + "\n");
+                buffer.append(res1.getString(0) + "\nName: " + res1.getString(1) + "\nNumber: " + res1.getString(2) + "\nAddress: " + res1.getString(3) + "\n" + "\n");
             }
-            else if (res.getString(2).matches(editNumber.getText().toString()))
+            else if (res1.getString(2).matches(editNumber.getText().toString()))
             {
-                buffer.append(res.getString(0) + "\n" + res.getString(1) + "\n" + res.getString(2) + "\n" + res.getString(3) + "\n" + "\n");
+                buffer.append(res1.getString(0) + "\n" + res1.getString(1) + "\n" + res1.getString(2) + "\n" + res1.getString(3) + "\n" + "\n");
             }
-            else if (res.getString(3).matches(editAddress.getText().toString()))
+            else if (res1.getString(3).matches(editAddress.getText().toString()))
             {
-                buffer.append(res.getString(0) + "\n" + res.getString(1) + "\n" + res.getString(2) + "\n" + res.getString(3) + "\n" + "\n");
+                buffer.append(res1.getString(0) + "\n" + res1.getString(1) + "\n" + res1.getString(2) + "\n" + res1.getString(3) + "\n" + "\n");
             }
         }
 
