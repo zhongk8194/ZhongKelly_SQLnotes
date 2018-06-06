@@ -56,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
         StringBuffer buffer = new StringBuffer();
         while (res.moveToNext()){
             //Append res column 0,1,2,3 to the buffer, delimited by "\n"
-            buffer.append(res.getString(0) + "\nName: " + res.getString(1) + "\nNumber:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 " + + res.getString(2) + "\nAddress: " + res.getString(3) + "\n");
+            buffer.append(res.getString(0) + "\nName: " + res.getString(1) + "\nNumber: " +
+                    res.getString(2) + "\nAddress: " + res.getString(3) + "\n");
         }
         Log.d("MyContactApp", "MainActivity: viewData: assembled stringbuffer");
         showMessage("Data", buffer.toString());
@@ -86,11 +87,11 @@ public class MainActivity extends AppCompatActivity {
             }
             else if (res1.getString(2).matches(editNumber.getText().toString()))
             {
-                buffer.append(res1.getString(0) + "\n" + res1.getString(1) + "\n" + res1.getString(2) + "\n" + res1.getString(3) + "\n" + "\n");
+                buffer.append(res1.getString(0) + "\nName: " + res1.getString(1) + "\nNumber: " + res1.getString(2) + "\nAddress: " + res1.getString(3) + "\n" + "\n");
             }
             else if (res1.getString(3).matches(editAddress.getText().toString()))
             {
-                buffer.append(res1.getString(0) + "\n" + res1.getString(1) + "\n" + res1.getString(2) + "\n" + res1.getString(3) + "\n" + "\n");
+                buffer.append(res1.getString(0) + "\nName: " + res1.getString(1) + "\nNumber: " + res1.getString(2) + "\nAddress: " + res1.getString(3) + "\n" + "\n");
             }
         }
 
